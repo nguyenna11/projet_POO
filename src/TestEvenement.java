@@ -18,7 +18,7 @@ class Simulateur implements Simulable {
     public Simulateur(GUISimulator gui,long dateSimulation){
         this.gui = gui;
         gui.setSimulable(this);
-        this.setDateSimulation(dateSimulation);
+        this.setDateSimulation(1); // Initialisation dateSimulation = 1 d'après l'annexe C 
         this.setEvenements();
     }
 

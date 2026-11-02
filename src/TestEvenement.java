@@ -51,10 +51,12 @@ class Simulateur implements Simulable {
     }
     @Override 
     public void restart(){ //Recommence à 0 avec une liste d'événement vide et une date de simulation = 1
-        this.dateSimulation = 1;
-        while(evenements.peek()!=null){
-            evenements.poll();
+        if (simulationTerminee()==true){
+            this.dateSimulation = 1;
         }
+        while(evenements.peek()!=null){
+                evenements.poll();
+            }
     }
     public boolean simulationTerminee(){ //Plus aucune événements dans le tableau evenements donc simulation terminee
         if (evenements.peek()==null && this.dateSimulation !=1){

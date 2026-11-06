@@ -1,5 +1,5 @@
 public abstract class Evenement implements Comparable<Evenement>  {
-    private long date;
+    protected long date;
 
     public Evenement(long date){
         this.setDate(date);

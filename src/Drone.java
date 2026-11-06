@@ -31,7 +31,7 @@ class Drone extends Robot{
 
 
     @Override
-    public void remplirReservoir() {
+    public void remplirReservoir(Carte carte) {
         if (reservoir != CAPACITE_MAX){
         reservoir=CAPACITE_MAX;
         }

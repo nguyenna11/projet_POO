@@ -1,5 +1,6 @@
 public class EvenementRemplir extends Evenement{
     private Robot robot;
+    private Carte carte;
     
     public EvenementRemplir(long date,Robot robot){
         super(date);
@@ -9,7 +10,7 @@ public class EvenementRemplir extends Evenement{
     @Override 
     public void execute(){
         if (robot.getPosition().getNature() == NatureTerrain.EAU){
-            robot.remplirReservoir();
+            robot.remplirReservoir(carte);
         }
     }
 }

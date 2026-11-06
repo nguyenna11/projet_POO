@@ -54,7 +54,7 @@ public class Carte {
         }
     }
     public boolean caseExiste(Case src){ //Fonction qui vérifie si la case est bien dans la carte 
-        if (src.getLigne()>getNbLignes() |src.getColonne()>getNbColonnes()){ // Je n'ai pas mis <0 car dans Case on a déja les vérifications  
+        if (src.getLigne()>=getNbLignes() |src.getColonne()>=getNbColonnes()){ // Je n'ai pas mis <0 car dans Case on a déja les vérifications  
             return false;
         }
         return true;
@@ -98,20 +98,20 @@ public class Carte {
         switch (dir) {
             case NORD:
                 voisin = getCase((src.getLigne())-1, src.getColonne());
-                break;
+                return voisin;
             case SUD:
                 voisin = getCase((src.getLigne())+1, src.getColonne());
-                break;
+                return voisin;
             case EST :
                 voisin = getCase(src.getLigne(), (src.getColonne())+1);
-                break;
+                return voisin;
             case OUEST:
                 voisin = getCase(src.getLigne(), (src.getColonne())-1);
-                break;
+                return voisin;
             default :
-                System.out.println("Direction inconnue");  
+                System.out.println("Direction inconnue"); 
+                return src;
         }
-        return voisin;
     }
     
 }

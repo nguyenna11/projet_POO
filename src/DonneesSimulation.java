@@ -10,4 +10,15 @@ public class DonneesSimulation {
         this.incendies = new ArrayList<Incendie>();
         this.robots = new ArrayList<Robot>();
     }
+
+    public Carte getCarte(){
+        return carte;
+    }
+    public ArrayList<Incendie> getIncendies(){
+        return incendies;
+    }
+    public ArrayList<Robot> getRobots(){
+        return robots;
+    }
+    
 }

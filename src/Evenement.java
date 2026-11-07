@@ -26,12 +26,4 @@ public abstract class Evenement implements Comparable<Evenement>  {
         }
         return 0;
     }
-    @Override 
-    public boolean equals(Object other){//Compare si les dates sont égaux
-        if(other instanceof Evenement){
-            Evenement et = (Evenement) other;
-            return et.date == this.date;
-        }
-        return false;
-    }
 }

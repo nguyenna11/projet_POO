@@ -11,7 +11,6 @@ public class Carte {
         this.setTailleCases(tailleCases);
         this.setNbColonnes(nbColonnes);
         this.setNbLignes(nbLignes);
-        this.setCases(); // Initialisation du tableau matrice
     }
     
     public int getTailleCases(){
@@ -23,10 +22,11 @@ public class Carte {
     public int getNbColonnes(){
         return this.nbColonnes;
     }
-    public Case getCase(int ligne,int colonne){
-        Case c ;
-        c = new Case(ligne, colonne,null); // Je ne suis pas sûre j'ai null pour nature terrain à la fin je ne sais pas si on a le droit 
-        return c;
+    public Case getCase(int ligne,int colonne){ // Recherche dans le tableau cases
+        if (ligne > 0|ligne>=nbLignes |colonne<0|colonne>=nbColonnes){
+            throw new IllegalArgumentException("La case est hors de la carte");
+        }
+        return cases.get(ligne*nbColonnes +colonne);
     }
     public void setTailleCases(int tailleCases){
         if (tailleCases<=0){
@@ -46,13 +46,7 @@ public class Carte {
         }
         this.nbLignes = nbLignes;
     }
-    public void setCases(){
-        for (int j = 0;j<nbLignes;j++){
-            for (int s = 0;s<nbColonnes;s++){
-                cases.add(new Case(j,s,null));
-            }
-        }
-    }
+
     public boolean caseExiste(Case src){ //Fonction qui vérifie si la case est bien dans la carte 
         if (src.getLigne()>=getNbLignes() |src.getColonne()>=getNbColonnes()){ // Je n'ai pas mis <0 car dans Case on a déja les vérifications  
             return false;
@@ -70,11 +64,11 @@ public class Carte {
                 }
                 
             case SUD:
-                if (src.getLigne()+1>nbLignes){
+                if (src.getLigne()+1>=nbLignes){
                     return false;
                 }
             case EST :
-                if (src.getColonne()+1>nbColonnes){
+                if (src.getColonne()+1>=nbColonnes){
                     return false;
                 }
             case OUEST:
@@ -82,9 +76,8 @@ public class Carte {
                     return false;
                 }
             default :
-                System.out.println("Direction inconnue"); 
+                return true;
         }
-        return true;
     } 
 
     public Case getVoisin(Case src, Direction dir){ //On veut obtenir la case du voisin et selon moi  elle permet de faire un déplacement d'une case 

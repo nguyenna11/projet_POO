@@ -22,11 +22,13 @@ class Drone extends Robot{
     }
 
     @Override
-    public void deverserEau(){
+    public int deverserEau(){
         if (reservoir==0){
             throw new IllegalArgumentException("Le drone ne peut pas deverser d'eau car son réservoir est nulle !");
         }
+        int v = reservoir;
         reservoir = 0;
+        return  v;
     }
 
 

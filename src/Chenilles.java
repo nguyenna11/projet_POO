@@ -27,11 +27,16 @@ public class Chenilles extends Robot{
     }
 
     @Override
-    public void deverserEau(){
+    public int deverserEau(){
         if (reservoir==0){
             throw new IllegalArgumentException("Le drone ne peut pas deverser d'eau car son réservoir est nulle !");
         }
-        reservoir = 0;
+        int v = 0;
+        while (reservoir<100) {
+             reservoir -= 100;
+             v+=100;
+        }
+        return v;
     }
 
 

@@ -33,5 +33,9 @@ public class Case {
     public void setNature(NatureTerrain nature){
         this.nature = nature; 
     }
+    public boolean memeCase(Case autre){ // Si c'est les même case
+        return ligne ==autre.ligne && colonne==autre.colonne;
+    }
+
 
 }
